@@ -38,6 +38,12 @@ By default this module assumes itself in same parent directory of lua-nginx-modu
 stream-lua-nginx-module. If the directory layout is different, user can pass `NGX_LUA_LOC` and
 `NGX_STREAM_LUA_LOC` environment variable to specify paths of the two modules.
 
+After the module is compiled, also install the lua helper file.
+
+```
+make install
+```
+
 
 License
 =====================
