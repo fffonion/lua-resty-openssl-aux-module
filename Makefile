@@ -11,5 +11,5 @@ INSTALL ?= install
 all: ;
 
 install: all
-	$(INSTALL) -d $(DESTDIR)$(LUA_LIB_DIR)/resty/openssl/aux/
-	$(INSTALL) -m 664 lualib/resty/openssl/aux/*.lua $(DESTDIR)$(LUA_LIB_DIR)/resty/openssl/aux/
+	$(INSTALL) -d $(DESTDIR)$(LUA_LIB_DIR)/resty/openssl/auxiliary/
+	$(INSTALL) -m 664 lualib/resty/openssl/auxiliary/*.lua $(DESTDIR)$(LUA_LIB_DIR)/resty/openssl/auxiliary/
