@@ -49,6 +49,9 @@ if ngx.config.subsystem == "stream" then
     int ngx_stream_lua_resty_openssl_aux_get_socket_ssl_ctx(ngx_stream_lua_socket_tcp_upstream_t *u,
         void **_sess);
   ]]
+
+  -- sanity test
+  local _ = C.ngx_stream_lua_resty_openssl_aux_get_request_ssl
 else
   ffi.cdef [[
     typedef struct ngx_http_request_s ngx_http_request_t;
@@ -66,6 +69,9 @@ else
     int ngx_http_lua_resty_openssl_aux_get_socket_ssl_ctx(ngx_http_lua_socket_tcp_upstream_t *u,
         void **_sess);
   ]]
+
+  -- sanity test
+  local _ = C.ngx_http_lua_resty_openssl_aux_get_request_ssl
 end
 
 local void_pp = ffi.new("void *[1]")
@@ -103,7 +109,7 @@ get_req_ssl_ctx = function()
     return nil, "cannot read r->connection->ssl->session_ctx"
   end
 
-  return ffi.cast(ssl_type, void_pp[0])
+  return ffi.cast(ssl_ctx_type, void_pp[0])
 end
 
 get_socket_ssl = function(sock)
